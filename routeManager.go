@@ -67,7 +67,7 @@ func GetRoutes() {
 
 	for i := uint32(0); i < num; i++ {
 		routes[i] = *((*routestruct)(unsafe.Pointer(sr + (rowsize * uintptr(i)))))
-		log.Println(i, ". route is ", routes[i])
+		log.Println(i+1, ". route is ", routes[i])
 	}
 }
 
@@ -114,10 +114,4 @@ func newMem(size uint32) []byte {
 	Memory := make([]byte, size, size)
 	return Memory
 
-}
-func getUintptrFromBool(b bool) uintptr {
-	if b {
-		return 1
-	}
-	return 0
 }
